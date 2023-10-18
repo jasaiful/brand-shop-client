@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 rounded-t-3xl bg-base-200 text-base-content">
+            <footer className="footer p-10 rounded-b-3xl bg-base-200 text-base-content">
                 <nav>
                     <header className="footer-title">Services</header>
                     <a className="link link-hover">Branding</a>
@@ -27,13 +27,13 @@ const Footer = () => {
                     <a className="link link-hover">Cookie policy</a>
                 </nav>
             </footer>
-            <footer className="footer px-5 py-4 border-t bg-base-200 text-base-content border-base-300">
+            <footer className="footer rounded-t-3xl px-5 py-4 bg-slate-950 text-white border-red-600 border-t-8">
                 <aside className="items-center gap-2 grid-flow-col">
-                    <img className="w-11/12" src={logo} alt="" />
+                    <img className="w-10/12 bg-base-200 rounded-3xl" src={logo} alt="" />
                     <p> <span className="text-2xl font-bold text-red-600">Alloy Dreams Ltd.</span> <br />Providing reliable tech since 1994</p>
                 </aside>
                 <nav className="md:place-self-center md:justify-self-end">
-                    <div className="grid text-4xl grid-flow-col gap-4">
+                    <div className="grid text-4xl bg-base-200 rounded-3xl p-5 grid-flow-col gap-4">
                         <Link><FaFacebook className="text-blue-900"></FaFacebook></Link>
                         <Link><FaYoutube className="text-red-500"></FaYoutube></Link>
                         <Link><FaTwitter className="text-blue-500"></FaTwitter></Link>
