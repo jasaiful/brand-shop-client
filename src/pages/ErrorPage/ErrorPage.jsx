@@ -5,7 +5,7 @@ const ErrorPage = () => {
     const error = useRouteError();
     console.error(error);
     return (
-        <div className=" max-w-7xl text-center p-24 bg-base-200 mx-auto mt-32 space-y-5">
+        <div className=" max-w-7xl text-center p-24 bg-base-200 rounded-xl mx-auto mt-32 space-y-5">
             <h2 className="text-5xl font-semibold text-red-600">Oops!</h2>
             <p>Sorry, an unexpected error has occurred.</p>
             <p>

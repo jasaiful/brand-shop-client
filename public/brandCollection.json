@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "BMW",
+        "logo_url": "https://i.ibb.co/c11nqcY/image.png",
+        "founded": 1916,
+        "country": "Germany",
+        "popular_models": [
+            "3 Series",
+            "5 Series",
+            "X5"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Volkswagen",
+        "logo_url": "https://i.ibb.co/pL8Gm3D/image.png",
+        "founded": 1937,
+        "country": "Germany",
+        "popular_models": [
+            "Golf",
+            "Jetta",
+            "Passat"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Honda",
+        "logo_url": "https://i.ibb.co/LrxWHkT/image.png",
+        "founded": 1948,
+        "country": "Japan",
+        "popular_models": [
+            "Civic",
+            "Accord",
+            "CR-V"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Chevrolet",
+        "logo_url": "https://i.ibb.co/xCm14vw/image.png",
+        "founded": 1911,
+        "country": "United States",
+        "popular_models": [
+            "Silverado",
+            "Equinox",
+            "Malibu"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Toyota",
+        "logo_url": "https://i.ibb.co/SfYPL5Z/image.png",
+        "founded": 1937,
+        "country": "Japan",
+        "popular_models": [
+            "Camry",
+            "Corolla",
+            "Rav4"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Tesla",
+        "logo_url": "https://i.ibb.co/4MvpwfW/image.png",
+        "founded": 2003,
+        "country": "United States",
+        "popular_models": [
+            "Model S",
+            "Model 3",
+            "Model X"
+        ]
+    }
+]

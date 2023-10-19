@@ -4,6 +4,7 @@ import MainLayout from '../layout/MainLayout';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import Home from '../pages/Home/Home';
 import BrandList from '../pages/BrandList/BrandList';
+import AddCar from '../pages/AddCar/AddCar';
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -14,6 +15,10 @@ const myCreatedRoute = createBrowserRouter([
         {
             path: "/",
             element: <Home></Home>
+        },
+        {
+          path: "/addCar",
+          element: <AddCar></AddCar>
         },
         {
           path: "/brand",
