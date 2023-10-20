@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2'
 
 const AddCar = () => {
 
@@ -13,7 +13,30 @@ const AddCar = () => {
         const description = form.description.value;
         const rating = form.rating.value;
         const photo = form.photo.value;
-        console.log(model, brand, type, price, description, color, photo, rating);
+       
+        const newModel = {model, brand, type, price, description, color, photo, rating}
+        console.log(newModel);
+
+        // send to DB
+        fetch('http://localhost:5000/brand', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newModel)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if (data.insertedId) {
+                Swal.fire({
+                    title: 'Success',
+                    text: 'Model added successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Done'
+                })
+            }
+        })
     }
     return (
         <div className="hero my-5 bg-slate-950 rounded-xl max-w-5xl mx-auto">
