@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -19,7 +20,7 @@ const Login = () => {
 
             // database
             const user = {email, lastLoggedAt: result.user?.metadata?.lastSignInTime}
-            
+
             fetch('http://localhost:5000/user', {
                 method: 'PATCH',
                 headers: {
@@ -29,8 +30,15 @@ const Login = () => {
             } )
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-            })
+                    if (data.acknowledged === true) {
+                        Swal.fire({
+                            title: 'Success',
+                            text: 'Welcome, Login success!',
+                            icon: 'success',
+                            confirmButtonText: 'Done'
+                        })
+                    }
+                })
 
 
         })
