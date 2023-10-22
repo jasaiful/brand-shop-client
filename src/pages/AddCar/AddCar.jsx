@@ -1,42 +1,55 @@
+
+import { useState } from 'react';
 import Swal from 'sweetalert2'
 
 const AddCar = () => {
+    const [model, setModel] = useState('');
+    const [brand, setBrand] = useState('');
+    const [type, setType] = useState('');
+    const [color, setColor] = useState('');
+    const [price, setPrice] = useState('');
+    const [description, setDescription] = useState('');
+    const [rating, setRating] = useState('');
+    const [photo, setPhoto] = useState('');
+
+
 
     const handleAddModel = e => {
         e.preventDefault();
-        const form = e.target;
-        const model = form.model.value;
-        const brand = form.brand.value;
-        const type = form.type.value;
-        const color = form.color.value;
-        const price = form.price.value;
-        const description = form.description.value;
-        const rating = form.rating.value;
-        const photo = form.photo.value;
-       
-        const newModel = {model, brand, type, price, description, color, photo, rating}
+        
+        const newModel = { model, brand, type, price, description, color, photo, rating }
         console.log(newModel);
 
         // send to DB
-        fetch('http://localhost:5000/brand', {
+        fetch('https://brand-shop-server-sigma-wine.vercel.app/brand', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(newModel)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if (data.insertedId) {
-                Swal.fire({
-                    title: 'Success',
-                    text: 'Model added successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Done'
-                })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Model added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Done'
+                    })
+                    // clear fields
+                    setModel('');
+                    setBrand('');
+                    setType('');
+                    setColor('');
+                    setPrice('');
+                    setDescription('');
+                    setRating('');
+                    setPhoto('');
+                }
+            })
+
     }
     return (
         <div className="hero my-5 bg-slate-950 rounded-xl max-w-5xl mx-auto">
@@ -51,13 +64,27 @@ const AddCar = () => {
                                 <label className="label">
                                     <span className="label-text">Model Name</span>
                                 </label>
-                                <input type="text" name="model" placeholder="model name" className="input input-bordered" required />
+                                <input
+                                    type="text"
+                                    name="model"
+                                    placeholder="model name"
+                                    className="input input-bordered"
+                                    value={model}
+                                    onChange={(e) => setModel(e.target.value)}
+                                    required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Brand</span>
                                 </label>
-                                <input type="text" name="brand" placeholder="brand name" className="input input-bordered" required />
+                                <input
+                                    type="text"
+                                    name="brand"
+                                    placeholder="brand name"
+                                    className="input input-bordered"
+                                    value={brand}
+                                    onChange={(e) => setBrand(e.target.value)}
+                                    required />
                             </div>
                         </div>
                         <div className="flex gap-5">
@@ -65,40 +92,82 @@ const AddCar = () => {
                                 <label className="label">
                                     <span className="label-text">Type</span>
                                 </label>
-                                <input type="text" name="type" placeholder="model type" className="input input-bordered" required />
+                                <input
+                                    type="text"
+                                    name="type"
+                                    placeholder="model type"
+                                    className="input input-bordered"
+                                    value={type}
+                                    onChange={(e) => setType(e.target.value)}
+                                    required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Color</span>
                                 </label>
-                                <input type="text" name="color" placeholder="Price in USD" className="input input-bordered" required />
+                                <input
+                                    type="text"
+                                    name="color"
+                                    placeholder="Price in USD"
+                                    className="input input-bordered"
+                                    value={color}
+                                    onChange={(e) => setColor(e.target.value)}
+                                    required />
                             </div>
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
-                            <input type="number" name="price" placeholder="Price in USD" className="input input-bordered" required />
+                            <input
+                                type="number"
+                                name="price"
+                                placeholder="Price in USD"
+                                className="input input-bordered"
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)}
+                                required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Short Description</span>
                             </label>
-                            <input type="text" name="description" placeholder="short description" className="input input-bordered" required />
+                            <input
+                                type="text"
+                                name="description"
+                                placeholder="short description"
+                                className="input input-bordered"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                                required />
 
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Rating</span>
                             </label>
-                            <input type="text" name="rating" placeholder="rating" className="input input-bordered" required />
+                            <input
+                                type="text"
+                                name="rating"
+                                placeholder="rating"
+                                className="input input-bordered"
+                                value={rating}
+                                onChange={(e) => setRating(e.target.value)}
+                                required />
 
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input type="text" name="photo" placeholder="photo url" className="input input-bordered" required />
+                            <input
+                                type="text"
+                                name="photo"
+                                placeholder="photo url"
+                                className="input input-bordered"
+                                value={photo}
+                                onChange={(e) => setPhoto(e.target.value)}
+                                required />
 
                         </div>
                         <div className="form-control mt-6">

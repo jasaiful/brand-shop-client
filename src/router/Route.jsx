@@ -31,7 +31,7 @@ const myCreatedRoute = createBrowserRouter([
           element: <Login></Login>
         },
         {
-          path: "/brand",
+          path: "/brands",
           element: <BrandList></BrandList>
         }
       ]
