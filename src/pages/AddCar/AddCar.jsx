@@ -1,6 +1,6 @@
-
 import { useState } from 'react';
 import Swal from 'sweetalert2'
+import Rating from 'react-rating-stars-component';
 
 const AddCar = () => {
     const [model, setModel] = useState('');
@@ -9,18 +9,16 @@ const AddCar = () => {
     const [color, setColor] = useState('');
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
-    const [rating, setRating] = useState('');
+    const [rating, setRating] = useState(0);
     const [photo, setPhoto] = useState('');
-
-
 
     const handleAddModel = e => {
         e.preventDefault();
-        
+
         const newModel = { model, brand, type, price, description, color, photo, rating }
         console.log(newModel);
 
-        // send to DB
+        // send the new model data to the server
         fetch('https://brand-shop-server-sigma-wine.vercel.app/brand', {
             method: "POST",
             headers: {
@@ -45,7 +43,7 @@ const AddCar = () => {
                     setColor('');
                     setPrice('');
                     setDescription('');
-                    setRating('');
+                    setRating(0);
                     setPhoto('');
                 }
             })
@@ -146,15 +144,13 @@ const AddCar = () => {
                             <label className="label">
                                 <span className="label-text">Rating</span>
                             </label>
-                            <input
-                                type="text"
-                                name="rating"
-                                placeholder="rating"
-                                className="input input-bordered"
-                                value={rating}
-                                onChange={(e) => setRating(e.target.value)}
-                                required />
 
+                            <Rating
+                                count={5}
+                                size={24}
+                                value={rating}
+                                onChange={newRating => setRating(newRating)}
+                            />
                         </div>
                         <div className="form-control">
                             <label className="label">

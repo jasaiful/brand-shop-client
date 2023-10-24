@@ -1,12 +1,11 @@
-
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import Home from '../pages/Home/Home';
-import BrandList from '../pages/BrandList/BrandList';
 import AddCar from '../pages/AddCar/AddCar';
 import Register from '../pages/Register/Register';
 import Login from '../pages/Login/Login';
+import BrandPage from '../pages/BrandList/BrandPage';
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -19,7 +18,7 @@ const myCreatedRoute = createBrowserRouter([
             element: <Home></Home>
         },
         {
-          path: "/addCar",
+          path: "/addProduct",
           element: <AddCar></AddCar>
         },
         {
@@ -31,8 +30,8 @@ const myCreatedRoute = createBrowserRouter([
           element: <Login></Login>
         },
         {
-          path: "/brands",
-          element: <BrandList></BrandList>
+          path: "/brands/:brandName",
+          element: <BrandPage></BrandPage>
         }
       ]
     },

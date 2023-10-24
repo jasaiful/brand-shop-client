@@ -1,11 +1,15 @@
+// import { useState } from "react";
+// import { useParams } from "react-router-dom";
 
 
-const Toyota = () => {
-    return (
-        <div>
+// const Toyota = () => {
+//     const {brandName} = useParams();
+//     const [cars, setCars] = useState([]);
+//     return (
+//         <div>
             
-        </div>
-    );
-};
+//         </div>
+//     );
+// };
 
-export default Toyota;
+// export default Toyota;

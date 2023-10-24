@@ -6,7 +6,7 @@ const Navbar = () => {
 
     const navLinks = <>
         <li><NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "bg-red-600 text-white underline font-semibold" : ""} >Home</NavLink></li>
-        <li><NavLink to="/addCar" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "bg-red-600 text-white underline font-semibold" : ""} >Add Car</NavLink></li>
+        <li><NavLink to="/addProduct" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "bg-red-600 text-white underline font-semibold" : ""} >Add Product</NavLink></li>
         <li><NavLink to="/brand" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "bg-red-600 text-white underline font-semibold" : ""} >Brand List</NavLink></li>
         <li><NavLink to="/cart" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "bg-red-600 text-white underline font-semibold" : ""} >My Cart</NavLink></li>
         <li><NavLink to="/register" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "bg-red-600 text-white underline font-semibold" : ""} >Register</NavLink></li>
