@@ -10,3 +10,4 @@ const ViewDetailsPage = () => {
 
 export default ViewDetailsPage;
 
+ 

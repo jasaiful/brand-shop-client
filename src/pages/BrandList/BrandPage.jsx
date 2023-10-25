@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Slider from "react-slick";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Rating from 'react-rating-stars-component';
 
 const BrandPage = () => {
     const { brandName } = useParams();
-    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
-
+    
     useEffect(() => {
         fetch(`https://brand-shop-server-sigma-wine.vercel.app/brands/${brandName}/products`)
             .then(res => res.json())
@@ -17,7 +17,7 @@ const BrandPage = () => {
             .catch(error => console.error("Error fetching dada:", error));
     }, [brandName]);
 
-    // slider settings
+      // slider settings
     const sliderSettings = {
         dots: true,
         infinite: true,
@@ -85,13 +85,24 @@ const BrandPage = () => {
                                                     <h2> Brand: {product.brand} </h2>
                                                     <p>Type: {product.type}</p>
                                                     <p>Price: {product.price}$</p>
-                                                    <p>Rating: {product.rating}</p>
+                                                    <Rating
+                                                        value={product.Rating}
+                                                        count={5}
+                                                        edit={true}
+                                                        size={24}
+                                                        color1={'#000000'}
+                                                        color2={'#FFD700'}
+                                                    >
+                                                    </Rating>
                                                     <div className="card-actions justify-end">
                                                         <div>
-                                                            <button onClick={() => navigate(`/brands/${brandName}/update-product`)} className="btn btn-sm text-white border-none bg-red-600">Update</button>
+                                                            <Link to={`/brands/${brandName}/update-product`}><button className="btn btn-sm text-white border-none bg-red-600">Update</button></Link>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => navigate(`/brands/${brandName}/view-details`)} className="btn btn-sm text-white border-none bg-red-600">View Details</button>
+                                                            <Link to={`/brands/${brandName}/view-details`}>
+                                                                <button className="btn btn-sm text-white border-none bg-red-600">View Details</button>
+                                                            </Link>
+
                                                         </div>
 
                                                     </div>

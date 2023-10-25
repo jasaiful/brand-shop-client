@@ -23,7 +23,7 @@ const myCreatedRoute = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddCar></AddCar>
+        element: <PrivateRoute><AddCar></AddCar></PrivateRoute>
       },
       {
         path: "/register",
@@ -36,16 +36,16 @@ const myCreatedRoute = createBrowserRouter([
       {
         path: "/brands/:brandName",
         element: <BrandPage></BrandPage>,
-        children: [
-          {
-            path: "update-product",
-            element: <PrivateRoute> <UpdateProduct /> </PrivateRoute>
-          },
-          {
-            path: "view-details",
-            element: <PrivateRoute> <ViewDetailsPage /> </PrivateRoute>
-          }
-        ]
+      },
+      {
+        path: "/brands/:brandName/update-product",
+        element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
+        loader: ({params}) => fetch(`https://brand-shop-server-sigma-wine.vercel.app/brands/${params.id}`)
+      },
+
+      {
+        path: "/brands/:brandName/view-details",
+        element: <PrivateRoute><ViewDetailsPage></ViewDetailsPage></PrivateRoute>
       }
     ]
   },

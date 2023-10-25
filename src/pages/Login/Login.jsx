@@ -4,7 +4,6 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { FaGoogle } from "react-icons/fa";
 
-
 const Login = () => {
     const { googleLogin, signInUser } = useContext(AuthContext);
     const [error, setError] = useState("");

@@ -170,7 +170,6 @@ const AddCar = () => {
                             <button className="btn text-white bg-red-600">Add Model</button>
                         </div>
                     </form>
-                    {/* <p className="text-center pb-10">Already have an account? <Link to="/login" className="font-bold">Login</Link> </p> */}
                 </div>
             </div>
         </div>
