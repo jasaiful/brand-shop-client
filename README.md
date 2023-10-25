@@ -14,7 +14,7 @@ This project is created by the following features:
 - Functional
 
 ## 🔗 Live Links
-..........
+https://brand-shop-c7580.web.app/
 
 ## Authors
 Julfiker Ali

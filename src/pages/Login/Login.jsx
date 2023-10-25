@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { FaGoogle } from "react-icons/fa";
@@ -7,6 +7,10 @@ import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
     const { googleLogin, signInUser } = useContext(AuthContext);
+    const [error, setError] = useState("");
+    const location = useLocation();
+    console.log('locate to', location);
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -15,6 +19,7 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 console.log(result.user);
+                navigate(location?.state ? location.state : "/")
 
                 const googleUser = { email: result.user?.email, name: result.user?.displayName, userCreated: result.user?.metadata?.creationTime, lastLoggedAt: result.user?.metadata?.lastSignInTime };
 
@@ -46,14 +51,12 @@ const Login = () => {
 
     const handleLoginUser = e => {
         e.preventDefault();
-        // const form = e.target;
-        // const email = form.email.value;
-        // const password = form.password.value;
-        console.log(email, password)
 
         signInUser(email, password)
             .then(result => {
-                console.log(result.user);
+                console.log(result.user)
+                setError("")
+                navigate(location?.state ? location.state : "/")
 
                 // database
                 const user = { email, lastLoggedAt: result.user?.metadata?.lastSignInTime }
@@ -78,12 +81,20 @@ const Login = () => {
                             setEmail('');
                             setPassword('');
                         }
+                        else {
+                            setError("Email or password doesn't match.")
+                        }
                     })
+                    .catch(error => {
+                        console.error(error)
+                        setError("An error occurred. Please try again");
+                    });
 
             })
             .catch(error => {
                 console.error(error)
-            })
+                setError("Email or password doesn't match.")
+            });
     }
 
 
@@ -124,6 +135,7 @@ const Login = () => {
                                     required />
 
                             </div>
+                            <p className="text-red-600">{error}</p>
                             <div className="form-control mt-6">
                                 <button className="btn text-white bg-red-600">Login</button>
                             </div>

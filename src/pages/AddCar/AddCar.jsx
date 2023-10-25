@@ -19,7 +19,7 @@ const AddCar = () => {
         console.log(newModel);
 
         // send the new model data to the server
-        fetch('https://brand-shop-server-sigma-wine.vercel.app/brand', {
+        fetch('https://brand-shop-server-sigma-wine.vercel.app/brands', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
