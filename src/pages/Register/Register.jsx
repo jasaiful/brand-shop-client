@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 const Register = () => {
     const { createUser } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -56,6 +57,7 @@ const Register = () => {
                                     setEmail('');
                                     setPassword('');
                                 }
+                                navigate('/');
                             })
                         setError('');
                     })

@@ -60,7 +60,7 @@ const UpdateProduct = () => {
         <div className="hero my-5 bg-slate-950 rounded-xl max-w-5xl mx-auto">
             <div className="hero-content py-5 flex-col">
                 <div className="text-center">
-                    <h1 className="text-5xl text-white font-bold">Add a New Model</h1>
+                    <h1 className="text-5xl text-white font-bold">Update Product</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
                     <form onSubmit={handleAddModel} className="card-body">
