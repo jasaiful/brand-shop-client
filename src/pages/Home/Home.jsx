@@ -3,6 +3,7 @@ import Banner from "../../components/Banner/Banner";
 import Brand from "../../components/Brand/Brand";
 import FAQ from "../../components/FAQ/FAQ";
 import Testimonials from "../../components/Testimonials/Testimonials";
+import WhyChoose from "../../components/WhyChoose/WhyChoose";
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Brand></Brand>
             <FAQ></FAQ>
             <Testimonials></Testimonials>
+            <WhyChoose></WhyChoose>
         </div>
     );
 };
